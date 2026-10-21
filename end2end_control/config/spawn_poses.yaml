@@ -1,0 +1,29 @@
+# Spawn poses for the F1 car, one per world (world frame, metres / radians).
+#
+# Derived from each track's COLLADA mesh: the car is placed ON the red guide
+# line, 1.5 m BEHIND the checkered start strip, facing the direction of
+# travel ("Heading A" in the handoff). They were computed offline and have
+# NOT yet been confirmed visually in Gazebo - if a car lands off the line,
+# nudge x/y by ~0.3 m here and note the change.
+#
+# z is the drop height. A small positive value avoids spawning inside the
+# ground collision plane.
+default_z: 0.1
+
+worlds:
+  simple_circuit:
+    x: 53.5
+    y: -9.0
+    yaw: -1.5708
+  montmelo_line:
+    x: 24.34
+    y: -31.58
+    yaw: 0.0
+  montreal_line:
+    x: -200.63
+    y: -90.68
+    yaw: -2.8383
+  nurburgring_line:
+    x: -74.87
+    y: 38.11
+    yaw: -0.5473

@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!--
+  end2end_control world: simple_circuit
+  Copied from RoboticsInfrastructure/Scenes/simple_circuit.world, minus the
+  <scene><camera><track_visual> block (it had no effect there).
+  The track model is resolved as model://simple_circuit through
+  GZ_SIM_RESOURCE_PATH, which the launch file points at custom_robots.
+-->
+<sdf version="1.10">
+  <world name="default">
+
+    <plugin name="gz::sim::systems::Physics" filename="gz-sim-physics-system"/>
+    <plugin name="gz::sim::systems::SceneBroadcaster" filename="gz-sim-scene-broadcaster-system"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <gravity>0 0 -9.8</gravity>
+    <atmosphere type="adiabatic"/>
+
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+      <grid>false</grid>
+    </scene>
+
+    <!-- Circuit -->
+    <include>
+      <uri>model://simple_circuit</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <!-- Light -->
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+      <cast_shadows>true</cast_shadows>
+    </light>
+
+  </world>
+</sdf>
